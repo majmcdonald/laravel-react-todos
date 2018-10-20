@@ -23,12 +23,12 @@ class TodoTest extends TestCase
      *
      * @return void
      */
-    //public function testErrorWhenMissingData() {
-    //    $this->expectException(QueryException::class);
+    public function testErrorWhenMissingData() {
+        $this->expectException(QueryException::class);
 
-    //    $todo = new TodoRepository(new Todo);
-    //    $test = $todo->create([]);
-    //}
+        $todo = new TodoRepository(new Todo);
+        $test = $todo->create([]);
+    }
 
     /**
      * Create a Todo
