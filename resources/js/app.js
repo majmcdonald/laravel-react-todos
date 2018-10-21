@@ -13,4 +13,11 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Main');
+import React from 'react';
+import  Main from './components/Main';
+import ReactDOM from 'react-dom';
+
+
+if (document.getElementById('app')) {
+    ReactDOM.render(<Main />, document.getElementById('app'));
+}
