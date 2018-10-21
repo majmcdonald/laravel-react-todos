@@ -46,7 +46,6 @@ class TodoTest extends TestCase
 
         $this->assertInstanceOf(Todo::class, $test);
         $this->assertEquals($data['name'], $test->name);
-        $this->assertEquals($data['description'], $test->description);
         $this->assertEquals('new', $test->status);
     }
 
