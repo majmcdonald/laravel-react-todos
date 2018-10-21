@@ -21,7 +21,7 @@ class TodoController extends Controller
         $this->todoRepository = $todoRepository;
         $this->rules = [
         'name' => 'required|max:255',
-        'due_date' => 'date',
+        'due_date' => 'date|nullable',
         'status' => [Rule::in(['new', 'done'])], 
     ];
 
@@ -98,7 +98,7 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        $this->todoRepository->delete();
+        $this->todoRepository->find($id)->delete();
         return response()->json(null, 204);
     }
 }
