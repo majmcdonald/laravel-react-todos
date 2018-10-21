@@ -16,6 +16,8 @@ class TodoTest extends TestCase
 {
 
     use WithFaker;
+    use RefreshDatabase;
+
 
 
     /**

@@ -12,6 +12,8 @@ class TodoAPITest extends TestCase
 {
     
     use WithFaker;
+    use RefreshDatabase;
+
 
 
     /**
@@ -85,15 +87,9 @@ class TodoAPITest extends TestCase
             'due_date'=>'2018/01/01',
         ];
 
-        $response = $this->json('PUT', '/api/todo', $data);
+        $response = $this->json('PUT', '/api/todo/'.$todo->id, $data);
         $response
-            ->assertStatus(200)
-            ->assertJson([
-            'data' => [ 
-                'name' => $data['name'],
-                'status' => $data['status'],
-                'due_date' => $data['due_date'],
-            ]]);
+            ->assertStatus(204);
     }
 
     /**
@@ -104,7 +100,7 @@ class TodoAPITest extends TestCase
     public function testDeleteTodo()
     {
         $todo = factory(Todo::class)->create();
-        $response = $this->json('DELETE', '/api/todo'.$todo->id);
+        $response = $this->json('DELETE', '/api/todo/'.$todo->id);
         $response
             ->assertStatus(204);
     }
