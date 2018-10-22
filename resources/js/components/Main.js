@@ -101,6 +101,10 @@ class Main extends Component {
 
                         <ul className="list-unstyled">
                             {this.state.todos.data.map(todo => {
+                                let textClass = classNames("todoName", {
+                                    'strikethrough': (todo.status=='done' )
+                                });
+
                                 return (
 
                                 <li className="todo" key={todo.id}>
@@ -110,7 +114,7 @@ class Main extends Component {
                                                    checked={todo.status=='done'}
                                                    onChange={this.updateStatus.bind(this, todo)}
                                             />
-                                        <span className="todoName">{todo.name}</span>
+                                        <span className={textClass}>{todo.name}</span>
                                     <span onClick={this.handleDeleteTodo.bind(this,todo)}>
                                     <FaTrashAlt/>
                                     </span>
