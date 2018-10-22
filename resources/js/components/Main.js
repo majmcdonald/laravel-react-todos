@@ -74,7 +74,7 @@ class Main extends Component {
     }
 
     handleAddTodo(todo) {
-        fetch( 'api/todo/', {
+        fetch( 'api/todo', {
             method:'post',
             headers: {
                 'Accept': 'application/json',
