@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AddTodo from './AddTodo';
 import { FaTrashAlt } from 'react-icons/fa';
+import classNames from 'classnames';
+
 
 
 
@@ -95,22 +97,24 @@ class Main extends Component {
 
     renderTodos() {
         return (
-            <div>
+            <div >
 
-                        <ul>
+                        <ul className="list-unstyled">
                             {this.state.todos.data.map(todo => {
                                 return (
 
-                                <li key={todo.id}>
-                                    <input type="checkbox"
-                                           todo-id={todo.id}
-                                           checked={todo.status=='done'}
-                                           onChange={this.updateStatus.bind(this, todo)}
-                                    />
-                                    {todo.name}
+                                <li className="todo" key={todo.id}>
+                                    <div className="todoItem">
+                                            <input type="checkbox"
+                                                   todo-id={todo.id}
+                                                   checked={todo.status=='done'}
+                                                   onChange={this.updateStatus.bind(this, todo)}
+                                            />
+                                        <span className="todoName">{todo.name}</span>
                                     <span onClick={this.handleDeleteTodo.bind(this,todo)}>
                                     <FaTrashAlt/>
                                     </span>
+                                    </div>
                                 </li>
                                 )})}
                         </ul>
@@ -119,14 +123,17 @@ class Main extends Component {
     }
 
     render() {
-
         return (
-            <div>
-                <AddTodo onAdd={this.handleAddTodo} />
-                <div >
-                    <h1> ToDo List</h1>
-                    { this.renderTodos() }
+            <div className="container">
+                <div className={classNames("row", "mt-5")}>
+                    <div className={classNames("col-md-12", " col-md-offset-6")}>
+                        <AddTodo onAdd={this.handleAddTodo} />
+                        <div >
+                            <h1> ToDo List</h1>
+                            { this.renderTodos() }
 
+                        </div>
+                    </div>
                 </div>
             </div>
 

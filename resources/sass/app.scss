@@ -8,7 +8,27 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+// Base
+html {
+    font-size: 16px;
 }
+
+body {
+    font-size: 100%;
+    font-family: 'Roboto', arial, sans-serif;
+    background: #f9f9f9;
+}
+
+
+.todo {
+    padding: 8px 4px;
+    border-bottom: 1px solid #b0d4f1;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.todoName {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+

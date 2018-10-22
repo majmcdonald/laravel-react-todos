@@ -24,6 +24,7 @@ class AddTodo extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.onAdd(this.state.newTodo);
+        document.getElementById("addTodo").reset();
     }
 
     render() {
@@ -32,8 +33,8 @@ class AddTodo extends Component {
         return(
             <div>
                 <div >
-                    <form onSubmit={this.handleSubmit}>
-                            <input type="text"  placeholder="What need to be Done?"  onChange={(e)=>this.handleInput('name',e)}/>
+                    <form onSubmit={this.handleSubmit} id="addTodo">
+                            <input type="text"  placeholder="What need to be Done?"  onChange={(e)=>this.handleInput('name',e)} className="form-control add-todo"/>
                         <input type="submit" value="Add" />
                     </form>
                 </div>
